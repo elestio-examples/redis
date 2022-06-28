@@ -28,7 +28,7 @@ config:
   runTime: "dockerCompose"
   version: ""
   framework: ""
-  installCommand: "./install.sh"
+  postInstallCommand: "./postInstall.sh"
   buildCommand: "docker-compose build"
   buildDir: "/"
   runCommand: "docker-compose up -d"
