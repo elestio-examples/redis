@@ -1,7 +1,6 @@
 version: '3'
 services:
   redis:
-    container_name: redis
     image: redis:${SOFTWARE_VERSION_TAG}
     command: redis-server --save 10 1 --loglevel warning --requirepass ${SOFTWARE_PASSWORD}
     shm_size: '1g'
