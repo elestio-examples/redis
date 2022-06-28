@@ -1,29 +1,22 @@
 version: '3'
 services:
-  mysql:
-    image: mysql:8
-    restart: always
-    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    environment:
-      MYSQL_ROOT_PASSWORD: ${SOFTWARE_PASSWORD}
-    ports:
-      - '172.17.0.1:3306:3306'
+  redis:
+    container_name: redis
+    image: redis:${SOFTWARE_VERSION_TAG}
+    command: redis-server --save 10 1 --loglevel warning --requirepass ${SOFTWARE_PASSWORD}
+    shm_size: '1g'
+    env_file:
+      - .env
     volumes:
-      - './data:/var/lib/mysql'
-      - './sql:/docker-entrypoint-initdb.d'
-  pma:
-    image: phpmyadmin/phpmyadmin
+      - ./data:/data
     restart: always
-    links:
-      - mysql:mysql
     ports:
-      - "172.17.0.1:24581:80"
-    environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
-      PMA_USER: root
-      PMA_PASSWORD: ${SOFTWARE_PASSWORD}
-      MYSQL_USERNAME: root
-      MYSQL_ROOT_PASSWORD: ${SOFTWARE_PASSWORD}
-    depends_on:
-      - mysql
+      - "172.17.0.1:6379:6379"
+
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    restart: always
+    ports:
+      - '172.17.0.1:8001:8001'
+    volumes:
+      - ./insight:/db 

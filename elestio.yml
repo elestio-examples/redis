@@ -2,7 +2,7 @@ ports:
   - protocol: "HTTPS"
     targetProtocol: "HTTP"
     listeningPort: "443"
-    targetPort: "24581"
+    targetPort: "8001"
     targetIP: "172.17.0.1"
     public: true
     path: "/"
@@ -11,21 +11,24 @@ ports:
     password: "random_password"
   - protocol: "TCP"
     targetProtocol: "TCP"
-    listeningPort: "24306"
+    listeningPort: "26379"
     targetIP: "172.17.0.1"
-    targetPort: "3306"
+    targetPort: "6379"
     public: true
     path: "/"
     isAuth: false
     login: ""
     password: ""
 environments:
+  - key: "SOFTWARE_VERSION_TAG"
+    value: "latest"
   - key: "SOFTWARE_PASSWORD"
     value: "random_password"
 config:
   runTime: "dockerCompose"
   version: ""
   framework: ""
+  installCommand: "./install.sh"
   buildCommand: "docker-compose build"
   buildDir: "/"
   runCommand: "docker-compose up -d"
