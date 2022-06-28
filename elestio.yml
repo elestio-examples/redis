@@ -9,6 +9,16 @@ ports:
     isAuth: true
     login: "root"
     password: "random_password"
+  - protocol: "TCP"
+    targetProtocol: "TCP"
+    listeningPort: "6379"
+    targetIP: "172.17.0.1"
+    targetPort: "6379"
+    public: true
+    path: "/"
+    isAuth: false
+    login: ""
+    password: ""
 environments:
   - key: "SOFTWARE_VERSION_TAG"
     value: "latest"
