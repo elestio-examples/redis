@@ -16,6 +16,7 @@ services:
   redisinsight:
     image: redislabs/redisinsight:latest
     restart: always
+    user: 0:0
     ports:
       - '172.17.0.1:8001:8001'
     volumes:
