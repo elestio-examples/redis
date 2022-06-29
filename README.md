@@ -22,3 +22,7 @@ You can connect to your server with any Redis client:
 CLI:
 
     redis-cli -h [CI_CD_DOMAIN] -p 6379 -a [SOFTWARE_PASSWORD]
+
+Service URI:
+
+    redis://:[SOFTWARE_PASSWORD]@[CI_CD_DOMAIN]:6379/0
