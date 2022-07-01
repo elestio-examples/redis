@@ -20,8 +20,6 @@ environments:
     value: "latest"
   - key: "SOFTWARE_PASSWORD"
     value: "random_password"
-  - key: "REDIS_INTERNAL_IP"
-    value: "172.17.0.1"
   - key: "REDIS_INTERNAL_PORT"
     value: "6379"
   - key: "INSIGHT_INTERNAL_IP"
