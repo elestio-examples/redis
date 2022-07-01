@@ -5,6 +5,7 @@ set -o allexport; source .env; set +o allexport;
 sleep 10s;
 
 #register the local server in the web ui
+redis_insight_target=$(docker-compose port redisinsight 8001)
 curl --output /dev/null --header "Content-Type: application/json" \
- --request POST --data '{ "name": "local", "connectionType": "STANDALONE", "host": "redis","port": '"$REDIS_INTERNAL_PORT"',"password": "'"$SOFTWARE_PASSWORD"'"}' \
- http://$INSIGHT_INTERNAL_IP:$INSIGHT_INTERNAL_PORT/api/instance/
+ --request POST --data '{ "name": "local", "connectionType": "STANDALONE", "host": "redis","port": 6379,"password": "'"$SOFTWARE_PASSWORD"'"}' \
+ http://$redis_insight_target/api/instance/
