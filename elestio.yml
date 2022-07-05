@@ -42,6 +42,6 @@ lifeCycleConfig:
   postBackupCommand: "./scripts/postBackup.sh"
   preRestoreCommand: "./scripts/preRestore.sh"
   postRestoreCommand: "./scripts/postRestore.sh"
-  webUI:
+webUI:
   - url: "https://[CI_CD_DOMAIN]"
     label: "Website"
