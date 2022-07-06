@@ -1,5 +1,5 @@
 # Current Dir
-cd [CURRENT_DIR]
+cd $CURRENT_DIR
 
 source .env
 #Getting running port and IP
