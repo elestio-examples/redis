@@ -2,7 +2,7 @@
 set -o allexport; source .env; set +o allexport;
 
 #wait until the server is ready
-ech "Waiting for redis insight to be ready ..."
+echo "Waiting for redis insight to be ready ..."
 sleep 10s;
 
 #register the local server in the web ui
