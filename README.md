@@ -7,7 +7,7 @@ Example CI/CD pipeline showing how to deploy a redis instance to elestio.
 
 # Once deployed ...
 
-You can can open Redis Insight to manage your redis instance here:
+You can open Redis Insight to manage your redis instance here:
 
     https://[CI_CD_DOMAIN]/
     Login: root
