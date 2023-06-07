@@ -13,7 +13,7 @@ services:
       - "172.17.0.1:6379:6379"
 
   redisinsight:
-    image: redislabs/redisinsight:1.12.0
+    image: redislabs/redisinsight:latest
     restart: always
     user: 0:0
     ports:
