@@ -16,6 +16,9 @@ services:
     image: redislabs/redisinsight:latest
     restart: always
     user: 0:0
+    environment:
+      - RIPROXYENABLE=true
+      - RITRUSTEDORIGINS=https://${DOMAIN}
     ports:
       - '172.17.0.1:8001:8001'
     volumes:
