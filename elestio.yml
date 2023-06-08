@@ -26,6 +26,8 @@ environments:
     value: "172.17.0.1"
   - key: "INSIGHT_INTERNAL_PORT"
     value: "8001"
+  - key: DOMAIN
+    value: "[CI_CD_DOMAIN]"
 config:
   runTime: "dockerCompose"
   version: ""
