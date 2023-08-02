@@ -78,9 +78,15 @@ Here are some example snippets to help you get started creating a container.
             ports:
                 - '172.17.0.1:8001:8001'
             volumes:
-                - ./insight:/db 
+                - ./insight:/db
 
+### Environment variables
 
+|       Variable       | Value (example) |
+| :------------------: | :-------------: |
+| SOFTWARE_VERSION_TAG |     latest      |
+|  SOFTWARE_PASSWORD   |  your-password  |
+|        DOMAIN        |   your.domain   |
 
 # Maintenance
 
