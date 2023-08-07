@@ -1,9 +1,9 @@
-version: '3'
+version: "3"
 services:
   redis:
-    image: redis:${SOFTWARE_VERSION_TAG}
+    image: elestio/redis:${SOFTWARE_VERSION_TAG}
     command: redis-server --save 10 1 --loglevel warning --requirepass ${SOFTWARE_PASSWORD}
-    shm_size: '1g'
+    shm_size: "1g"
     env_file:
       - .env
     volumes:
@@ -20,6 +20,6 @@ services:
       - RIPROXYENABLE=true
       - RITRUSTEDORIGINS=https://${DOMAIN}
     ports:
-      - '172.17.0.1:8001:8001'
+      - "172.17.0.1:8001:8001"
     volumes:
-      - ./insight:/db 
+      - ./insight:/db

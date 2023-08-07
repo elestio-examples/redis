@@ -10,7 +10,7 @@
 
 [Redis](https://github.com/docker-library/redis) is the leading open-source automation server.
 
-<img src="https://github.com/elestio-examples/redis/raw/main/screenshot.png" alt="Redis" width="800">
+<img src="https://github.com/elestio-examples/redis/raw/main//tests/redis.png" alt="Redis" width="800">
 
 Deploy a <a target="_blank" href="https://elest.io/open-source/redis">fully managed redis</a> on <a target="_blank" href="https://elest.io/">elest.io</a> if you want automated backups, reverse proxy with SSL termination, firewall, automated OS & Software updates, and a team of Linux experts and open source enthusiasts to ensure your services are always safe, and functional.
 
@@ -38,9 +38,6 @@ Edit the .env file with your own values.
 
 Create data folders with correct permissions
 
-    mkdir -p ./insight
-    chown -R 1000:1000 ./insight
-
     mkdir -p ./data
     chown -R 1000:1000 ./data
 
@@ -48,7 +45,19 @@ Run the project with the following command
 
     docker-compose up -d
 
-You can access the Web UI at: `http://your-domain:8001`
+You can connect to your server with any Redis client:
+
+    Host: your.domain
+    Port: 6379
+    Password: your-password
+
+CLI:
+
+    redis-cli -h your.domain -p 6379 -a 'your-password'
+
+Service URI:
+
+    redis://:your-password@your.domain:6379/0
 
 ## Docker-compose
 
@@ -68,25 +77,12 @@ Here are some example snippets to help you get started creating a container.
             ports:
                 - "172.17.0.1:6379:6379"
 
-        redisinsight:
-            image: redislabs/redisinsight:latest
-            restart: always
-            user: 0:0
-            environment:
-                - RIPROXYENABLE=true
-                - RITRUSTEDORIGINS=https://${DOMAIN}
-            ports:
-                - '172.17.0.1:8001:8001'
-            volumes:
-                - ./insight:/db
-
 ### Environment variables
 
 |       Variable       | Value (example) |
 | :------------------: | :-------------: |
 | SOFTWARE_VERSION_TAG |     latest      |
 |  SOFTWARE_PASSWORD   |  your-password  |
-|        DOMAIN        |   your.domain   |
 
 # Maintenance
 
