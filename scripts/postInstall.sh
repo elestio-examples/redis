@@ -5,6 +5,9 @@ set -o allexport; source .env; set +o allexport;
 echo "Waiting for redis insight to be ready ..."
 sleep 10s;
 
+#install redis tools for cli helper
+apt install -y redis-tools
+
 #register the local server in the web ui
 redis_insight_target=$(docker-compose port redisinsight 8001)
 curl --output /dev/null --header "Content-Type: application/json" \
