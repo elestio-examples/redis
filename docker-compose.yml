@@ -13,7 +13,7 @@ services:
       - "26379:6379"
 
   redisinsight:
-    image: redislabs/redisinsight:latest
+    image: redislabs/redisinsight:1.14.0
     restart: always
     user: 0:0
     environment:
