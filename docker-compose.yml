@@ -2,7 +2,7 @@ version: "3"
 services:
   redis:
     image: elestio/redis:${SOFTWARE_VERSION_TAG}
-    command: redis-server --save 10 1 --loglevel warning --requirepass ${SOFTWARE_PASSWORD}
+    command: redis-server --save 10 1 --loglevel warning --requirepass ${SOFTWARE_PASSWORD} #--tls-port 6380 --port 6379 --tls-ca-cert-file /data/ca.crt --tls-cert-file /data/redis.crt --tls-key-file /data/redis.key
     shm_size: "1g"
     env_file:
       - .env
@@ -11,6 +11,7 @@ services:
     restart: always
     ports:
       - "26379:6379"
+      - "26380:6380"
 
   redisinsight:
     image: redislabs/redisinsight:1.14.0

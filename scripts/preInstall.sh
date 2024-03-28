@@ -5,7 +5,7 @@ mkdir -p ./insight
 chown -R 1000:1000 ./insight
 
 mkdir -p ./data
-chown -R 1000:1000 ./data
+chown -R 1001:1001 ./data
 
 export $(xargs <.env)
 
