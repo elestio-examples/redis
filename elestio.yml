@@ -9,6 +9,12 @@ ports:
     isAuth: true
     login: "root"
     password: "random_password"
+  - protocol: "TCP"
+    targetProtocol: "TCP"
+    listeningPort: "26380"
+    targetIP: "172.17.0.1"
+    targetPort: "6380"
+    public: true
 environments:
   - key: "SOFTWARE_VERSION_TAG"
     value: "latest"
@@ -21,8 +27,6 @@ environments:
   - key: "INSIGHT_INTERNAL_PORT"
     value: "8001"
   - key: "DOMAIN"
-    value: "[CI_CD_DOMAIN]"
-  - key: "CNAME"
     value: "[CI_CD_DOMAIN]"
 config:
   runTime: "dockerCompose"

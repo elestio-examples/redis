@@ -11,8 +11,7 @@ services:
     restart: always
     ports:
       - "26379:6379"
-      - "26380:6380"
-
+      - "6380:6380"
   redisinsight:
     image: redislabs/redisinsight:1.14.0
     restart: always
